@@ -1,0 +1,3 @@
+[[hooks]]
+stage = "post_build"
+command = "./target/debug/trunk_inline_rust.exe"
