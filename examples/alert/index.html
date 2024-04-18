@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Trunk Inline Rust Scripts</title>
+        <script type="rust">
+            //! ```cargo
+            //! [dependencies]
+            //! wasm-bindgen = "0.2.92"
+            //! ```
+
+            use wasm_bindgen::prelude::*;
+
+            #[wasm_bindgen]
+            extern "C" {
+                fn alert(s: &str);
+            }
+
+            #[wasm_bindgen(start)]
+            fn run() {
+                alert("Hello World!");
+            }
+
+            #[wasm_bindgen]
+            pub fn rusty_alert(input: &str) {
+                alert(format!("Rusty Alert: {}", input).as_str());
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="rusty_alert('Clicked!')">Click me</button> 
+    </body>
+</html>

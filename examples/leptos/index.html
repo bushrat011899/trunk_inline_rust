@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Trunk Inline Rust Scripts</title>
+        <script type="rust">
+            //! ```cargo
+            //! [dependencies]
+            //! wasm-bindgen = "0.2.92"
+            //! leptos = { version = "0.6.11", features = ["csr"] }
+            //! ```
+
+            use wasm_bindgen::prelude::*;
+            use leptos::*;
+
+            #[wasm_bindgen(start)]
+            fn main() {
+                mount_to_body(|| view! {
+                    <p>"Hello, world!"</p>
+                })
+            }
+        </script>
+    </head>
+    <body></body>
+</html>
